@@ -17,7 +17,7 @@ mkdir -p "$REPO_DIR"
 mkdir -p "/var/log/roboshop/"
 touch ansible.log
 
-cd $$REPO_DIR
+cd $REPO_DIR
 
 #check whether ansible repo cloned or not
 
