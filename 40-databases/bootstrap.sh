@@ -18,7 +18,7 @@ cd $REPO_DIR
 
 #check whether ansible repo cloned or not
 
-if [-d $ANSIBLE_DIR]; then 
+if [ -d $ANSIBLE_DIR ]; then 
   
   cd $ANSIBLE_DIR
   git pull
