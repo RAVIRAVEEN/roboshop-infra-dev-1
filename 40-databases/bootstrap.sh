@@ -5,7 +5,7 @@ sudo dnf install ansible -y
 #  environment=$2
 # ansible-pull -U https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git -e component=$component main.yaml
 
-REPO_URl=https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git
+REPO_URL=https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git
 REPO_DIR=opt/roboshop/ansible
 ANSIBLE_DIR=roboshop-ansible-roles-tf-1
 
@@ -23,10 +23,10 @@ if [-d $ANSIBLE_DIR]; then
   cd $ANSIBLE_DIR
   git pull
  
- else 
+ else
     git clone $REPO_URL
     cd $ANSIBLE_DIR
 
 fi
 
-ansible-playbook -e component=$component main.yaml
+ansible-playbook  -e component=$component main.yaml
