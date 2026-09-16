@@ -134,53 +134,57 @@ provisioner "remote-exec" {
 #   }
 # }
 
-#  resource "aws_iam_instance_profile" "mysql" {
-#   name = "Ec2ssmParameterStore"
-#   role = "Ec2ssmParameterStore"
-# }
 
 
-# resource "aws_instance" "mysql" {
-#   ami           = local.ami_id
-#   instance_type = var.instance_type
-#   vpc_security_group_ids = [local.mysql_sg_id]
-#   subnet_id = local.database_subnet_ids
-#    iam_instance_profile = aws_iam_instance_profile.mysql.name
+resource "aws_instance" "mysql" {
+  ami           = local.ami_id
+  instance_type = var.instance_type
+  vpc_security_group_ids = [local.mysql_sg_id]
+  subnet_id = local.database_subnet_ids
+   iam_instance_profile = aws_iam_instance_profile.mysql.name
+
 
  
-#   tags = merge(
-#     local.common_tags,
+  tags = merge(
+    local.common_tags,
   
-#          {
-#         Name = "${local.common_names_suffix}-mysql"
-#     }
+         {
+        Name = "${local.common_names_suffix}-mysql"
+    }
   
-#   )
+  )
 
-# }
+}
 
-# resource "terraform_data" "mysql" {
-#   triggers_replace = [
-#   aws_instance.mysql.id
-#   ]
+ resource "aws_iam_instance_profile" "mysql" {
+  name = "Ec2ssmParameterStore"
+  role = "Ec2ssmParameterStore"
+}
 
-#   connection {
-#     type     = "ssh"
-#     user     = "ec2-user"
-#     password = "DevOps321"
-#     host     = aws_instance.mysql.private_ip
-#   }
 
-#   provisioner "file" {
-#     source = "bootstrap.sh"
-#     destination = "/tmp/bootstrap.sh"
-#   }
 
-# provisioner "remote-exec" {
-#     inline = [
-#       "sudo chmod +x /tmp/bootstrap.sh",
-#       "sudo sh /tmp/bootstrap.sh mysql"
+resource "terraform_data" "mysql" {
+  triggers_replace = [
+  aws_instance.mysql.id
+  ]
 
-#     ]
-#   }
-# }
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     = aws_instance.mysql.private_ip
+  }
+
+  provisioner "file" {
+    source = "bootstrap.sh"
+    destination = "/tmp/bootstrap.sh"
+  }
+
+provisioner "remote-exec" {
+    inline = [
+      "sudo chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh mysql"
+
+    ]
+  }
+}
