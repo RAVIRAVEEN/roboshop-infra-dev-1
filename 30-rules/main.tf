@@ -50,7 +50,7 @@ resource "aws_security_group_rule""rabbitmq_bastion" {
 }
 
 resource "aws_security_group_rule""mysql_bastion" {
-  security_group_id = local.mysql_sg_id           #redis
+  security_group_id = local.mysql_sg_id         #redis
   source_security_group_id = local.bastion_sg_id    ##bastion 
   type              = "ingress"
   from_port         = 22
