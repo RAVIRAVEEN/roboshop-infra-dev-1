@@ -2,6 +2,7 @@
 
 sudo dnf install ansible -y
  component=$1
+ environment=$2
 #  environment=$2
 # ansible-pull -U https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git -e component=$component main.yaml
 
@@ -29,4 +30,4 @@ if [ -d $ANSIBLE_DIR ]; then
 
 fi
 
-ansible-playbook -e component=$component main.yaml
+ansible-playbook -e component=$component -e component=$environment main.yaml
