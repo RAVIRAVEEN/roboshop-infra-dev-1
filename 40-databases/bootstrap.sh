@@ -1,19 +1,16 @@
 #!/bin/bash
 
 sudo dnf install ansible -y
-
  component=$1
 #  environment=$2
 # ansible-pull -U https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git -e component=$component main.yaml
-
-
 
 REPO_URl=https://github.com/RAVIRAVEEN/roboshop-ansible-roles-tf-1.git
 REPO_DIR="opt/roboshop/ansible"
 ANSIBLE_DIR="roboshop-ansible-roles-tf-1"
 
 
-mkdir -p "$REPO_DIR"
+mkdir -p $REPO_DIR
 mkdir -p "/var/log/roboshop/"
 touch ansible.log
 
