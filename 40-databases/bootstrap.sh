@@ -30,4 +30,4 @@ if [ -d $ANSIBLE_DIR ]; then
 
 fi
 
-ansible-playbook -e component=$component -e component=$environment main.yaml
+ansible-playbook -e component=$component -e environment=$environment main.yaml
