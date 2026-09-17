@@ -96,7 +96,7 @@ resource "aws_instance" "rabbitmq" {
   instance_type = var.instance_type
   vpc_security_group_ids = [local.rabbitmq_sg_id]
   subnet_id = local.database_subnet_ids
-
+  iam_instance_profile = aws_iam_instance_profile.rabbitmq.name
   tags = merge(
     local.common_tags,
   
@@ -106,6 +106,12 @@ resource "aws_instance" "rabbitmq" {
   
   )
 
+}
+
+
+resource "aws_iam_instance_profile" "rabbitmq" {
+  name = "rabbitmq"
+  role = "Ec2ssmParameterStore"
 }
 
 resource "terraform_data" "rabbitmq" {
