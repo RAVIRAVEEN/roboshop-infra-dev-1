@@ -6,13 +6,13 @@ terraform {
       version = "6.43.0"
     }
   }
-    backend "s3" {
-        bucket         = "raveen-remote-state"
-        key            = "roboshop-database"
-        region         = "us-east-1"
-        encrypt        = true
-        use_lockfile = true # Enables native S3 state locking
-    }
+  backend "s3" {
+    bucket       = "raveen-remote-state"
+    key          = "roboshop-database"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true # Enables native S3 state locking
+  }
 
 
 }
