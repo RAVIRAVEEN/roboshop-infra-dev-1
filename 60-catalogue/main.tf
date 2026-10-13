@@ -17,7 +17,7 @@ resource "aws_instance" "catalogue" {
 
 resource "terraform_data" "catalogue" {
   triggers_replace = [
-   aws_instance.mongodb.id
+   aws_instance.catalogue.id
   ]
 
 
