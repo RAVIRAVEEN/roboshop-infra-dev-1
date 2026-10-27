@@ -7,7 +7,7 @@ terraform {
     }
   }
     backend "s3" {
-        bucket         = "raveen-remote-state"
+        bucket         = "raveen-remote-state-1"
         key            = "roboshop-catalogue"
         region         = "us-east-1"
         encrypt        = true
