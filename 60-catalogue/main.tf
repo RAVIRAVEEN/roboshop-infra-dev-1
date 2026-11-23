@@ -160,11 +160,6 @@ resource "aws_autoscaling_group" "catalogue" {
     delete = "15m"
   }
 
-  tag {
-    key                 = "lorem"
-    value               = "ipsum"
-    propagate_at_launch = false
-  }
 }
    
 
