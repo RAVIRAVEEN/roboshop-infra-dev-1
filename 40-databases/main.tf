@@ -204,6 +204,7 @@ resource "aws_route53_record" "mongodb" {
   type    = "A"
   ttl     = 1
   records = [aws_instance.mongodb.private_ip]
+  allow_overwrite = true
 }
 
 
@@ -213,6 +214,7 @@ resource "aws_route53_record" "redis" {
   type    = "A"
   ttl     = 1
   records = [aws_instance.redis.private_ip]
+  allow_overwrite = true
 }
 
 resource "aws_route53_record" "mysql" {
@@ -221,6 +223,7 @@ resource "aws_route53_record" "mysql" {
   type    = "A"
   ttl     = 1
   records = [aws_instance.mysql.private_ip]
+  allow_overwrite = true
 }
 
 resource "aws_route53_record" "rabbitmq" {
@@ -229,5 +232,6 @@ resource "aws_route53_record" "rabbitmq" {
   type    = "A"
   ttl     = 10
   records = [aws_instance.rabbitmq.private_ip]
+  allow_overwrite = true
 }
 
