@@ -14,7 +14,7 @@ variable "instance_type" {
 
 
 variable "zone_id" {
-  default = "Z06546311YPLZ322A2G41"
+  default = "Z10094902BO1OLVNCXV23"
 }
 
 variable "domain_name" {
