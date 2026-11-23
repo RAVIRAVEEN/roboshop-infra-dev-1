@@ -3,3 +3,4 @@ resource "aws_ssm_parameter" "backend_alb_listener.arn" {
   name  = "/${var.project_name}/${var.environment_name}/backend_alb_listener.arn"
   type  = "String"
   value = aws_lb_listener.backend_alb.arn
+}
