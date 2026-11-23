@@ -56,7 +56,7 @@ resource "aws_ec2_instance_state" "catalogue_stopped" {
 
 resource "aws_ami_from_instance" "catalogue" {
   name               = "${local.common_names_suffix}-catalogue-take-AMI"
-  source_instance_id = aws_instance.catalogue.ami.id
+  source_instance_id = aws_instance.catalogue.ami
   depends_on = [ aws_ec2_instance_state.catalogue_stopped ]
   }
 
@@ -74,7 +74,7 @@ resource "aws_lb_target_group" "catalogue" {
   matcher =  "200-299"
   timeout = 2
   path = "/health"
-  protocol = HTTP
+  protocol = "HTTP"
   port = 8080
 }
 
