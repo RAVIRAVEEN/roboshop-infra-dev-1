@@ -195,22 +195,17 @@ resource "aws_lb_listener_rule" "catalogue" {
 
 
 
-# resource "terraform_data" "catalogue" {
+#  resource "terraform_data" "catalogue" {
 #   triggers_replace = [
 #    aws_instance.catalogue.id
 #   ]
 
-#   connection {
-#     type     = "ssh"
-#     user     = "ec2-user"
-#     password = "DevOps321"
-#     host     = aws_instance.catalogue.private_ip
-#   }
+#  depends_on = [ aws_autoscaling_policy.catalogue]
 
 
-# provisioner "local-exec" {
-#     command = aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+#  provisioner "local-exec" {
+#      command = "aws ec2 terminate-instances --instance-ids ${aws_ec2_instance_state_catalogue_stopped.id}"
 
 #   }
 
-# }
+#  }
