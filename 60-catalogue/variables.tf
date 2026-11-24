@@ -11,3 +11,6 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
+variable "domain_name" {
+  default = "raveen.fun"
+}

@@ -188,7 +188,7 @@ resource "aws_lb_listener_rule" "catalogue" {
 
   condition {
     host_header {
-      values = ["catalogue"]
+      values = ["catalogue.backend-alb-${var.environment_name}.${var.domain_name}"]
     }
   }
 }
@@ -209,7 +209,8 @@ resource "aws_lb_listener_rule" "catalogue" {
 
 
 # provisioner "local-exec" {
-#     command = aws ec2 terminate-instances --instance-ids aws_ec2_instance_state
+#     command = aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+
 #   }
 
 # }
